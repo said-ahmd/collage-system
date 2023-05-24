@@ -17,15 +17,19 @@ export const validateInput = (req, res, next) => {
       const usrCodeRegex = /^\d+$/;
 
       // check if first_name and last_name only contain valid characters
-      if (!nameRegex.test(first_name) || !nameRegex.test(last_name)) {
-        return res.render("adminTemplates/adminCreateUser", { message: "Invalid character in first or last name." });
+      if (!nameRegex.test(first_name)) {
+        return res.render("adminTemplates/adminCreateUser", { message: "Invalid character in first name" });
+      }
+      if(!nameRegex.test(last_name)){
+
+        return res.render("adminTemplates/adminCreateUser", { message: "Invalid character in first name" });
       }
       if(!usrCodeRegex.test(user_code)){
         return res.render("adminTemplates/adminCreateUser", { message: "Invalid character in user code." });
       }
 
       // if all validations passed, call create user controller
-      createUser(req, res);
+      next();
     })
     .catch(error => {
       console.log(error);

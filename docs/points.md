@@ -16,6 +16,8 @@ we 'll need at least the following collections to implement the service:
 | last name | string |
 | password | string |
 | user_type | string |
+| student_code | string |
+---
 
 **2-doctors:**
 | column | type |
@@ -29,9 +31,9 @@ we 'll need at least the following collections to implement the service:
 **3-students:**
 | column | type |
 |--------|------|
-| student_id (pk)| int |
-| student_name | string |
-| student_password | string |
+| first_name | string |
+| last_name | string |
+| user_code | string |
 | courses_ids | [string] |
 ---
 
